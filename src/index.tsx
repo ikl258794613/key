@@ -6,9 +6,9 @@ import Keyword from './pages/Keyword'
 import Template from './pages/Template'
 import reportWebVitals from './reportWebVitals'
 import { ChakraProvider } from '@chakra-ui/react'
-import { createBrowserRouter, RouterProvider, Route } from 'react-router-dom'
+import { createHashRouter, RouterProvider, Route } from 'react-router-dom'
 
-const router = createBrowserRouter([
+const router = createHashRouter([
   {
     path: '/',
     element: <Instructions />,

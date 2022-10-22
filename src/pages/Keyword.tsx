@@ -4,19 +4,13 @@ import { Button } from '@chakra-ui/react'
 import { FaTrashAlt, FaCopy } from 'react-icons/fa'
 import { useToast } from '@chakra-ui/react'
 import KeywordCarde from '../components/Card/KeywordCard'
-
-const KeywordCardArray = [
-  { engName: 'spread arms', zhName: '伸出雙臂', id: 1, text: 'spread arms' },
-  { engName: 'looking back', zhName: '回頭看', id: 2, text: 'looking back' },
-  { engName: 'twintails,', zhName: '雙馬尾', id: 3, text: 'twintails' },
-  { engName: 'ponytail', zhName: '馬尾', id: 4, text: 'ponytail' },
-]
+import { KeywordCardArray } from '../utils/keyword'
 
 function Keyword() {
   const toast = useToast()
   const [InputText, setInputText] = React.useState<string>('')
 
-  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleInputChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     let inputValue = event.target.value
     setInputText(inputValue)
   }
@@ -28,7 +22,7 @@ function Keyword() {
       position: 'top',
       variant: 'solid',
       status: 'success',
-      duration: 9000,
+      duration: 300,
       isClosable: true,
     })
   }
@@ -40,7 +34,7 @@ function Keyword() {
       position: 'top',
       variant: 'solid',
       status: 'success',
-      duration: 9000,
+      duration: 300,
       isClosable: true,
     })
   }
@@ -67,21 +61,28 @@ function Keyword() {
               )
             })}
           </div>
-          <div className='border-t-2 border-black'>
+          <div>
             <div className='mt-2 ml-4'>
               <div>
-                <Button colorScheme='red' onClick={handleClear}>
+                <Button
+                  colorScheme='red'
+                  onClick={handleClear}
+                  className='mr-2'
+                >
                   <FaTrashAlt />
                 </Button>
-                <Button colorScheme='blue' onClick={handleCopy}>
+                <Button
+                  colorScheme='blue'
+                  onClick={handleCopy}
+                  className='mr-2'
+                >
                   <FaCopy />
                 </Button>
               </div>
             </div>
 
-            <input
-              className='border-2 ml-4 w-[60%] border-black h-32 mt-10'
-              type='text'
+            <textarea
+              className='border-2 ml-4 w-[60%] h-32 mt-10'
               value={InputText}
               onChange={handleInputChange}
             />

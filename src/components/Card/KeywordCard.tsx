@@ -27,7 +27,7 @@ export default function KeywordCard({
       position: 'top',
       variant: 'solid',
       status: 'success',
-      duration: 9000,
+      duration: 300,
       isClosable: true,
     })
   }
